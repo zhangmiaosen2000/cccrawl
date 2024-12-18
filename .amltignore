@@ -1,0 +1,5 @@
+*.json
+
+./models
+./test
+./__pyvache__
