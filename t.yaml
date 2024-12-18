@@ -10,6 +10,8 @@ environment:
   image: amlt-sing/acpt-torch2.4.1-py3.10-cuda12.4-ubuntu22.04
 
   setup:
+    - git clone https://github.com/zhangmiaosen2000/cccrawl.git
+    - cd cccrawl
     - bash install.sh
 storage:
   lmm:
@@ -34,6 +36,7 @@ jobs:
     
     sku: ${SKU}
     command:
+      - cd cccrawl
       - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_0.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_0to1 --start 0 --end 1
   
   - name: split_0_1to2
@@ -45,5 +48,6 @@ jobs:
     
     sku: ${SKU}
     command:
+      - cd cccrawl
       - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_0.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_1to2 --start 1 --end 2
   
