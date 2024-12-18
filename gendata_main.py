@@ -1,12 +1,8 @@
 import asyncio  
 from playwright.async_api import async_playwright  
-import cv2  
-import numpy as np  
-import random  
 from ccutils import get_random_screen, bbox_dedup, get_layout
 import argparse  
-import json, os
-from tqdm.asyncio import tqdm  
+import json, os 
 from tqdm import tqdm as tqdm_sync  
 
 
