@@ -6,7 +6,7 @@ playwright install-deps
 playwright install
 
 
-pip install dreamsim
+# pip install dreamsim
 pip install opencv-python-headless
 pip install opencv-python==4.7.0.72   
 

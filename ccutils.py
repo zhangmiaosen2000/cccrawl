@@ -1,6 +1,6 @@
 
-import asyncio  
-from playwright.async_api import async_playwright  
+# import asyncio  
+# from playwright.async_api import async_playwright  
 import cv2, os
 import numpy as np
 import random 
@@ -85,27 +85,27 @@ async def get_random_screen():
     return reso
 
 
-from PIL import Image
-import torch
-import torch.nn.functional as F
-from dreamsim import dreamsim
-device = "cuda"
-model, preprocess = dreamsim(pretrained=True, device=device)
+# from PIL import Image
+# import torch
+# import torch.nn.functional as F
+# from dreamsim import dreamsim
+# device = "cuda"
+# model, preprocess = dreamsim(pretrained=True, device=device)
 
 
-async def get_norm(save_path, screen_shot_path, page_path):
-    img = preprocess(Image.open(save_path)).to("cuda")
-    layout_emb = model.embed(img)
-    layout_emb = F.normalize(layout_emb)
-    img = preprocess(Image.open(screen_shot_path)).to("cuda")
-    screen_emb = model.embed(img)
-    screen_emb = F.normalize(screen_emb)
+# async def get_norm(save_path, screen_shot_path, page_path):
+#     img = preprocess(Image.open(save_path)).to("cuda")
+#     layout_emb = model.embed(img)
+#     layout_emb = F.normalize(layout_emb)
+#     img = preprocess(Image.open(screen_shot_path)).to("cuda")
+#     screen_emb = model.embed(img)
+#     screen_emb = F.normalize(screen_emb)
 
-    layout_emb_path = os.path.join(page_path, "layout_emb.pth")
-    torch.save(layout_emb, layout_emb_path)
-    screen_emb_path = os.path.join(page_path, "screen_emb.pth")
-    torch.save(screen_emb, screen_emb_path)
-    return screen_emb, layout_emb
+#     layout_emb_path = os.path.join(page_path, "layout_emb.pth")
+#     torch.save(layout_emb, layout_emb_path)
+#     screen_emb_path = os.path.join(page_path, "screen_emb.pth")
+#     torch.save(screen_emb, screen_emb_path)
+#     return screen_emb, layout_emb
 
 
 async def get_layout(elements, page_path, screen_shot_path, viewport_width, viewport_height):
@@ -148,6 +148,6 @@ async def get_layout(elements, page_path, screen_shot_path, viewport_width, view
     save_path = os.path.join(page_path, "layout.png")
     cv2.imwrite(save_path, canvas)
 
-    await get_norm(save_path, screen_shot_path, page_path)
+    # await get_norm(save_path, screen_shot_path, page_path)
 
     
