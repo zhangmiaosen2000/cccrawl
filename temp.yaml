@@ -1,0 +1,23 @@
+description: gendata
+
+environment:
+  image: amlt-sing/acpt-torch2.4.1-py3.10-cuda12.4-ubuntu22.04
+
+  setup:
+    - git clone https://github.com/zhangmiaosen2000/cccrawl.git
+    - cd cccrawl
+    - bash install.sh
+storage:
+  lmm:
+    container_name: vground
+    mount_dir: /mnt/vground
+    storage_account_name: t2vgusw2
+    is_output: True
+
+
+target:
+  workspace_name: t2vgws2
+  service: sing
+  name: msrresrchvc
+
+jobs:

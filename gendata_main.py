@@ -109,8 +109,10 @@ async def process_url(browser, url_info, idx, args, progress):
                     page_path = os.path.join(args.out_dir, args.run_name, unique_page_name)  
                     if os.path.exists(page_path):  
                         os.system(f"rm -rf {page_path}")  
-     
-    await context.close()  
+    try:
+        await context.close()  
+    except:
+        pass
     progress.update(1)  
   
 async def main():  
