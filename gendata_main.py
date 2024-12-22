@@ -137,9 +137,10 @@ async def main():
             with tqdm_sync(total=len(urls), desc="Processing URLs") as progress:  
                 tasks = [process_url(browser, url, stid + idx * batch_max + iidx, args, progress) for iidx, url in enumerate(urls)]  
                 await asyncio.gather(*tasks) 
-    
-            await browser.close()  
-  
+            try:
+                await browser.close()  
+            except:
+                pass
 if __name__ == "__main__":  
     # 运行主函数  
     asyncio.run(main())  

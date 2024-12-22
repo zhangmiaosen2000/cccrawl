@@ -20,9 +20,9 @@ md = """
 """
 
 split = 0
-sku = "8C60"
+sku = "10C3"
 template = open("temp.yaml", "r").read()
-for st in range(201, 251):
+for st in range(0, 4):
     template += md.format(split_idx=split, sku=sku, st = st, ed = st+1)
 
 open("jobs.yaml", "w").write(template)
