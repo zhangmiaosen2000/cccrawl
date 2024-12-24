@@ -9,7 +9,10 @@ from tqdm import tqdm as tqdm_sync
 async def process_page(page, web_idx, scroll_idx, args, viewport_width, viewport_height, url_info):
     unique_page_name = f"web_{web_idx}_scroll_{scroll_idx}"
     page_path = os.path.join(args.out_dir, args.run_name, unique_page_name)
-    os.makedirs(page_path, exist_ok = True) 
+    if os.path.exists(page_path):
+        return True
+    else:
+        os.makedirs(page_path) 
 
     # 保存截图  
     screenshot_path = os.path.join(page_path, f'screenshot.png')
