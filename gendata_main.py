@@ -136,7 +136,7 @@ async def main():
 
             with tqdm_sync(total=len(urls), desc="Processing URLs") as progress:  
                 tasks = [process_url(browser, url, stid + idx * batch_max + iidx, args, progress) for iidx, url in enumerate(urls)]  
-                await asyncio.gather(*tasks) 
+                await asyncio.gather(*tasks, return_exceptions=True) 
             try:
                 await browser.close()  
             except:
