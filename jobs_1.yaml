@@ -1,0 +1,1258 @@
+description: gendata
+
+environment:
+  image: amlt-sing/acpt-torch2.4.1-py3.10-cuda12.4-ubuntu22.04
+
+  setup:
+    - git clone https://github.com/zhangmiaosen2000/cccrawl.git
+    - cd cccrawl
+    - bash install.sh
+storage:
+  lmm:
+    container_name: vground
+    mount_dir: /mnt/vground
+    storage_account_name: t2vgusw2
+    is_output: True
+
+
+target:
+  workspace_name: t2vgws2
+  service: sing
+  name: msrresrchvc
+
+jobs:
+
+  - name: split_1_0to5
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_0to5 --start 0 --end 5; fi; done  
+
+  - name: split_1_5to10
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_5to10 --start 5 --end 10; fi; done  
+
+  - name: split_1_10to15
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_10to15 --start 10 --end 15; fi; done  
+
+  - name: split_1_15to20
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_15to20 --start 15 --end 20; fi; done  
+
+  - name: split_1_20to25
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_20to25 --start 20 --end 25; fi; done  
+
+  - name: split_1_25to30
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_25to30 --start 25 --end 30; fi; done  
+
+  - name: split_1_30to35
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_30to35 --start 30 --end 35; fi; done  
+
+  - name: split_1_35to40
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_35to40 --start 35 --end 40; fi; done  
+
+  - name: split_1_40to45
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_40to45 --start 40 --end 45; fi; done  
+
+  - name: split_1_45to50
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_45to50 --start 45 --end 50; fi; done  
+
+  - name: split_1_50to55
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_50to55 --start 50 --end 55; fi; done  
+
+  - name: split_1_55to60
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_55to60 --start 55 --end 60; fi; done  
+
+  - name: split_1_60to65
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_60to65 --start 60 --end 65; fi; done  
+
+  - name: split_1_65to70
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_65to70 --start 65 --end 70; fi; done  
+
+  - name: split_1_70to75
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_70to75 --start 70 --end 75; fi; done  
+
+  - name: split_1_75to80
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_75to80 --start 75 --end 80; fi; done  
+
+  - name: split_1_80to85
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_80to85 --start 80 --end 85; fi; done  
+
+  - name: split_1_85to90
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_85to90 --start 85 --end 90; fi; done  
+
+  - name: split_1_90to95
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_90to95 --start 90 --end 95; fi; done  
+
+  - name: split_1_95to100
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_95to100 --start 95 --end 100; fi; done  
+
+  - name: split_1_100to105
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_100to105 --start 100 --end 105; fi; done  
+
+  - name: split_1_105to110
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_105to110 --start 105 --end 110; fi; done  
+
+  - name: split_1_110to115
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_110to115 --start 110 --end 115; fi; done  
+
+  - name: split_1_115to120
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_115to120 --start 115 --end 120; fi; done  
+
+  - name: split_1_120to125
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_120to125 --start 120 --end 125; fi; done  
+
+  - name: split_1_125to130
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_125to130 --start 125 --end 130; fi; done  
+
+  - name: split_1_130to135
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_130to135 --start 130 --end 135; fi; done  
+
+  - name: split_1_135to140
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_135to140 --start 135 --end 140; fi; done  
+
+  - name: split_1_140to145
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_140to145 --start 140 --end 145; fi; done  
+
+  - name: split_1_145to150
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_145to150 --start 145 --end 150; fi; done  
+
+  - name: split_1_150to155
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_150to155 --start 150 --end 155; fi; done  
+
+  - name: split_1_155to160
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_155to160 --start 155 --end 160; fi; done  
+
+  - name: split_1_160to165
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_160to165 --start 160 --end 165; fi; done  
+
+  - name: split_1_165to170
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_165to170 --start 165 --end 170; fi; done  
+
+  - name: split_1_170to175
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_170to175 --start 170 --end 175; fi; done  
+
+  - name: split_1_175to180
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_175to180 --start 175 --end 180; fi; done  
+
+  - name: split_1_180to185
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_180to185 --start 180 --end 185; fi; done  
+
+  - name: split_1_185to190
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_185to190 --start 185 --end 190; fi; done  
+
+  - name: split_1_190to195
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_190to195 --start 190 --end 195; fi; done  
+
+  - name: split_1_195to200
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_195to200 --start 195 --end 200; fi; done  
+
+  - name: split_1_200to205
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_200to205 --start 200 --end 205; fi; done  
+
+  - name: split_1_205to210
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_205to210 --start 205 --end 210; fi; done  
+
+  - name: split_1_210to215
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_210to215 --start 210 --end 215; fi; done  
+
+  - name: split_1_215to220
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_215to220 --start 215 --end 220; fi; done  
+
+  - name: split_1_220to225
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_220to225 --start 220 --end 225; fi; done  
+
+  - name: split_1_225to230
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_225to230 --start 225 --end 230; fi; done  
+
+  - name: split_1_230to235
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_230to235 --start 230 --end 235; fi; done  
+
+  - name: split_1_235to240
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_235to240 --start 235 --end 240; fi; done  
+
+  - name: split_1_240to245
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_240to245 --start 240 --end 245; fi; done  
+
+  - name: split_1_245to250
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_245to250 --start 245 --end 250; fi; done  
+
+  - name: split_1_250to255
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_250to255 --start 250 --end 255; fi; done  
+
+  - name: split_1_255to260
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_255to260 --start 255 --end 260; fi; done  
+
+  - name: split_1_260to265
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_260to265 --start 260 --end 265; fi; done  
+
+  - name: split_1_265to270
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_265to270 --start 265 --end 270; fi; done  
+
+  - name: split_1_270to275
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_270to275 --start 270 --end 275; fi; done  
+
+  - name: split_1_275to280
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_275to280 --start 275 --end 280; fi; done  
+
+  - name: split_1_280to285
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_280to285 --start 280 --end 285; fi; done  
+
+  - name: split_1_285to290
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_285to290 --start 285 --end 290; fi; done  
+
+  - name: split_1_290to295
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_290to295 --start 290 --end 295; fi; done  
+
+  - name: split_1_295to300
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_295to300 --start 295 --end 300; fi; done  
+
+  - name: split_1_300to305
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_300to305 --start 300 --end 305; fi; done  
+
+  - name: split_1_305to310
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_305to310 --start 305 --end 310; fi; done  
+
+  - name: split_1_310to315
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_310to315 --start 310 --end 315; fi; done  
+
+  - name: split_1_315to320
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_315to320 --start 315 --end 320; fi; done  
+
+  - name: split_1_320to325
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_320to325 --start 320 --end 325; fi; done  
+
+  - name: split_1_325to330
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_325to330 --start 325 --end 330; fi; done  
+
+  - name: split_1_330to335
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_330to335 --start 330 --end 335; fi; done  
+
+  - name: split_1_335to340
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_335to340 --start 335 --end 340; fi; done  
+
+  - name: split_1_340to345
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_340to345 --start 340 --end 345; fi; done  
+
+  - name: split_1_345to350
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_345to350 --start 345 --end 350; fi; done  
+
+  - name: split_1_350to355
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_350to355 --start 350 --end 355; fi; done  
+
+  - name: split_1_355to360
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_355to360 --start 355 --end 360; fi; done  
+
+  - name: split_1_360to365
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_360to365 --start 360 --end 365; fi; done  
+
+  - name: split_1_365to370
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_365to370 --start 365 --end 370; fi; done  
+
+  - name: split_1_370to375
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_370to375 --start 370 --end 375; fi; done  
+
+  - name: split_1_375to380
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_375to380 --start 375 --end 380; fi; done  
+
+  - name: split_1_380to385
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_380to385 --start 380 --end 385; fi; done  
+
+  - name: split_1_385to390
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_385to390 --start 385 --end 390; fi; done  
+
+  - name: split_1_390to395
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_390to395 --start 390 --end 395; fi; done  
+
+  - name: split_1_395to400
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_395to400 --start 395 --end 400; fi; done  
+
+  - name: split_1_400to405
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_400to405 --start 400 --end 405; fi; done  
+
+  - name: split_1_405to410
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_405to410 --start 405 --end 410; fi; done  
+
+  - name: split_1_410to415
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_410to415 --start 410 --end 415; fi; done  
+
+  - name: split_1_415to420
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_415to420 --start 415 --end 420; fi; done  
+
+  - name: split_1_420to425
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_420to425 --start 420 --end 425; fi; done  
+
+  - name: split_1_425to430
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_425to430 --start 425 --end 430; fi; done  
+
+  - name: split_1_430to435
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_430to435 --start 430 --end 435; fi; done  
+
+  - name: split_1_435to440
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_435to440 --start 435 --end 440; fi; done  
+
+  - name: split_1_440to445
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_440to445 --start 440 --end 445; fi; done  
+
+  - name: split_1_445to450
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_445to450 --start 445 --end 450; fi; done  
+
+  - name: split_1_450to455
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_450to455 --start 450 --end 455; fi; done  
+
+  - name: split_1_455to460
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_455to460 --start 455 --end 460; fi; done  
+
+  - name: split_1_460to465
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_460to465 --start 460 --end 465; fi; done  
+
+  - name: split_1_465to470
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_465to470 --start 465 --end 470; fi; done  
+
+  - name: split_1_470to475
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 10C3
+    command:
+      - cd cccrawl
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_1.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_1_470to475 --start 470 --end 475; fi; done  

@@ -21,8 +21,8 @@ storage:
 
 
 target:
-  workspace_name: t2vgws2
   service: sing
+  workspace_name: t2vgws2
   name: ${TARGET}
 
 jobs:

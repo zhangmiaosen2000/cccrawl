@@ -77,7 +77,12 @@ async def process_page(page, web_idx, scroll_idx, args, viewport_width, viewport
     await get_layout(filtered_elements, page_path, screenshot_path, viewport_width, viewport_height)
     return True
 
-async def process_url(browser, url_info, idx, args, progress):  
+async def process_url(browser, url_info, idx, args, progress): 
+    if os.path.exists("./webs/" + str(idx)+".txt"):
+        # last failed or processed
+        progress.update(1) 
+        return
+    open("./webs/" + str(idx)+".txt", "w").write("\n")
     url = url_info["url"]  
     # 设置浏览器视口大小  
     viewport_width, viewport_height = await get_random_screen()  
@@ -131,6 +136,7 @@ async def main():
     endid = int(100000*args.end)
     batch_max = 100
     print(f"running index from {stid} to {endid}")
+    
     for idx in range((endid-stid)//batch_max):
         print(idx)
         async with async_playwright() as p:  

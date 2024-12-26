@@ -1,0 +1,1163 @@
+description: gendata
+
+environment:
+  image: amlt-sing/acpt-torch2.4.1-py3.10-cuda12.4-ubuntu22.04
+
+  setup:
+    - git clone https://github.com/zhangmiaosen2000/cccrawl.git
+    - cd cccrawl
+    - bash install.sh
+storage:
+  lmm:
+    container_name: vground
+    mount_dir: /mnt/vground
+    storage_account_name: t2vgusw2
+    is_output: True
+
+
+target:
+  workspace_name: t2vgws2
+  service: sing
+  name: msrresrchvc
+
+jobs:
+
+  - name: split_5_0to5
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_0to5 --start 0 --end 5
+
+  - name: split_5_5to10
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_5to10 --start 5 --end 10
+
+  - name: split_5_10to15
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_10to15 --start 10 --end 15
+
+  - name: split_5_15to20
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_15to20 --start 15 --end 20
+
+  - name: split_5_20to25
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_20to25 --start 20 --end 25
+
+  - name: split_5_25to30
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_25to30 --start 25 --end 30
+
+  - name: split_5_30to35
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_30to35 --start 30 --end 35
+
+  - name: split_5_35to40
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_35to40 --start 35 --end 40
+
+  - name: split_5_40to45
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_40to45 --start 40 --end 45
+
+  - name: split_5_45to50
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_45to50 --start 45 --end 50
+
+  - name: split_5_50to55
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_50to55 --start 50 --end 55
+
+  - name: split_5_55to60
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_55to60 --start 55 --end 60
+
+  - name: split_5_60to65
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_60to65 --start 60 --end 65
+
+  - name: split_5_65to70
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_65to70 --start 65 --end 70
+
+  - name: split_5_70to75
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_70to75 --start 70 --end 75
+
+  - name: split_5_75to80
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_75to80 --start 75 --end 80
+
+  - name: split_5_80to85
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_80to85 --start 80 --end 85
+
+  - name: split_5_85to90
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_85to90 --start 85 --end 90
+
+  - name: split_5_90to95
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_90to95 --start 90 --end 95
+
+  - name: split_5_95to100
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_95to100 --start 95 --end 100
+
+  - name: split_5_100to105
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_100to105 --start 100 --end 105
+
+  - name: split_5_105to110
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_105to110 --start 105 --end 110
+
+  - name: split_5_110to115
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_110to115 --start 110 --end 115
+
+  - name: split_5_115to120
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_115to120 --start 115 --end 120
+
+  - name: split_5_120to125
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_120to125 --start 120 --end 125
+
+  - name: split_5_125to130
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_125to130 --start 125 --end 130
+
+  - name: split_5_130to135
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_130to135 --start 130 --end 135
+
+  - name: split_5_135to140
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_135to140 --start 135 --end 140
+
+  - name: split_5_140to145
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_140to145 --start 140 --end 145
+
+  - name: split_5_145to150
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_145to150 --start 145 --end 150
+
+  - name: split_5_150to155
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_150to155 --start 150 --end 155
+
+  - name: split_5_155to160
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_155to160 --start 155 --end 160
+
+  - name: split_5_160to165
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_160to165 --start 160 --end 165
+
+  - name: split_5_165to170
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_165to170 --start 165 --end 170
+
+  - name: split_5_170to175
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_170to175 --start 170 --end 175
+
+  - name: split_5_175to180
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_175to180 --start 175 --end 180
+
+  - name: split_5_180to185
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_180to185 --start 180 --end 185
+
+  - name: split_5_185to190
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_185to190 --start 185 --end 190
+
+  - name: split_5_190to195
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_190to195 --start 190 --end 195
+
+  - name: split_5_195to200
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_195to200 --start 195 --end 200
+
+  - name: split_5_200to205
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_200to205 --start 200 --end 205
+
+  - name: split_5_205to210
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_205to210 --start 205 --end 210
+
+  - name: split_5_210to215
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_210to215 --start 210 --end 215
+
+  - name: split_5_215to220
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_215to220 --start 215 --end 220
+
+  - name: split_5_220to225
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_220to225 --start 220 --end 225
+
+  - name: split_5_225to230
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_225to230 --start 225 --end 230
+
+  - name: split_5_230to235
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_230to235 --start 230 --end 235
+
+  - name: split_5_235to240
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_235to240 --start 235 --end 240
+
+  - name: split_5_240to245
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_240to245 --start 240 --end 245
+
+  - name: split_5_245to250
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_245to250 --start 245 --end 250
+
+  - name: split_5_250to255
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_250to255 --start 250 --end 255
+
+  - name: split_5_255to260
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_255to260 --start 255 --end 260
+
+  - name: split_5_260to265
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_260to265 --start 260 --end 265
+
+  - name: split_5_265to270
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_265to270 --start 265 --end 270
+
+  - name: split_5_270to275
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_270to275 --start 270 --end 275
+
+  - name: split_5_275to280
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_275to280 --start 275 --end 280
+
+  - name: split_5_280to285
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_280to285 --start 280 --end 285
+
+  - name: split_5_285to290
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_285to290 --start 285 --end 290
+
+  - name: split_5_290to295
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_290to295 --start 290 --end 295
+
+  - name: split_5_295to300
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_295to300 --start 295 --end 300
+
+  - name: split_5_300to305
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_300to305 --start 300 --end 305
+
+  - name: split_5_305to310
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_305to310 --start 305 --end 310
+
+  - name: split_5_310to315
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_310to315 --start 310 --end 315
+
+  - name: split_5_315to320
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_315to320 --start 315 --end 320
+
+  - name: split_5_320to325
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_320to325 --start 320 --end 325
+
+  - name: split_5_325to330
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_325to330 --start 325 --end 330
+
+  - name: split_5_330to335
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_330to335 --start 330 --end 335
+
+  - name: split_5_335to340
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_335to340 --start 335 --end 340
+
+  - name: split_5_340to345
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_340to345 --start 340 --end 345
+
+  - name: split_5_345to350
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_345to350 --start 345 --end 350
+
+  - name: split_5_350to355
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_350to355 --start 350 --end 355
+
+  - name: split_5_355to360
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_355to360 --start 355 --end 360
+
+  - name: split_5_360to365
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_360to365 --start 360 --end 365
+
+  - name: split_5_365to370
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_365to370 --start 365 --end 370
+
+  - name: split_5_370to375
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_370to375 --start 370 --end 375
+
+  - name: split_5_375to380
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_375to380 --start 375 --end 380
+
+  - name: split_5_380to385
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_380to385 --start 380 --end 385
+
+  - name: split_5_385to390
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_385to390 --start 385 --end 390
+
+  - name: split_5_390to395
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_390to395 --start 390 --end 395
+
+  - name: split_5_395to400
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_395to400 --start 395 --end 400
+
+  - name: split_5_400to405
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_400to405 --start 400 --end 405
+
+  - name: split_5_405to410
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_405to410 --start 405 --end 410
+
+  - name: split_5_410to415
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_410to415 --start 410 --end 415
+
+  - name: split_5_415to420
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_415to420 --start 415 --end 420
+
+  - name: split_5_420to425
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_420to425 --start 420 --end 425
+
+  - name: split_5_425to430
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_425to430 --start 425 --end 430
+
+  - name: split_5_430to435
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_430to435 --start 430 --end 435
+
+  - name: split_5_435to440
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_435to440 --start 435 --end 440
+
+  - name: split_5_440to445
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_440to445 --start 440 --end 445
+
+  - name: split_5_445to450
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_445to450 --start 445 --end 450
+
+  - name: split_5_450to455
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_450to455 --start 450 --end 455
+
+  - name: split_5_455to460
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_455to460 --start 455 --end 460
+
+  - name: split_5_460to465
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_460to465 --start 460 --end 465
+
+  - name: split_5_465to470
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_465to470 --start 465 --end 470
+
+  - name: split_5_470to475
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C7
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_5.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_470to475 --start 470 --end 475

@@ -1,0 +1,35 @@
+description: gendata
+
+environment:
+  image: amlt-sing/acpt-torch2.4.1-py3.10-cuda12.4-ubuntu22.04
+
+  setup:
+    - git clone https://github.com/zhangmiaosen2000/cccrawl.git
+    - cd cccrawl
+    - bash install.sh
+storage:
+  lmm:
+    container_name: vground
+    mount_dir: /mnt/vground
+    storage_account_name: t2vgusw2
+    is_output: True
+
+
+target:
+  workspace_name: t2vgws2
+  service: sing
+  name: msrresrchvc
+
+jobs:
+
+  - name: split_0_401to402
+    process_count_per_node: 1
+    execution_mode: Basic
+    priority: High          
+    sla_tier: premium   
+    identity: managed
+    
+    sku: 8C15
+    command:
+      - cd cccrawl
+      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_0.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_401to402 --start 401 --end 402

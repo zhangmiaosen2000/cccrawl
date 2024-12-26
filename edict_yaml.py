@@ -16,13 +16,14 @@ md = """
     sku: {sku}
     command:
       - cd cccrawl
-      - python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_{split_idx}.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_0_{st}to{ed} --start {st} --end {ed}
+      - mkdir ./webs
+      - while true; do FILE_COUNT=$(ls -1 ./webs | wc -l); if [ "$FILE_COUNT" -gt "499900" ]; then break; else python gendata_main.py --index /mnt/vground/selected_url_from_domain/CCurls_sampled_50pd_split_{split_idx}.json --out-dir /mnt/vground/CCCrawl_Raw --run-name split_{split_idx}_{st}to{ed} --start {st} --end {ed}; fi; done  
 """
 
-split = 0
-sku = "10C3"
+split = 3
+sku = "8C15"
 template = open("temp.yaml", "r").read()
-for st in range(0, 4):
-    template += md.format(split_idx=split, sku=sku, st = st, ed = st+1)
+for st in range(0, 95):
+    template += md.format(split_idx=split, sku=sku, st = st*5, ed = st*5+5)
 
-open("jobs.yaml", "w").write(template)
+open(f"jobs_{split}.yaml", "w").write(template)
